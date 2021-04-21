@@ -31,7 +31,6 @@ const Container = styled.div`
 
 
 
-
 /* MAIN CONTENT/ GRID */
 const MainContent = styled.main
     `
@@ -44,9 +43,19 @@ const MainContent = styled.main
     `
 ;
 
+const Card = styled.div
+    `
+      width: 210px;
+      border-radius: 5px;
+      background-color: hsl(209, 23%, 22%);
+      font-size: 0.875rem;
+      transition: all 0.2s ease-in-out;
+    `;
+
 
 export {
     MainContent,
     Container,
     BtnContainer,
+    Card,
 }

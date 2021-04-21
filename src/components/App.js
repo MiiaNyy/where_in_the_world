@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentGrid from "./ContentGrid";
 
-import {Container, BtnContainer} from "../styledComponents/styles";
+import {Container, BtnContainer} from "../styledComponents/Styles";
 
 function App() {
     return (

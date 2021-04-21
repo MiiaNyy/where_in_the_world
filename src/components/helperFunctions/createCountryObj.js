@@ -5,7 +5,7 @@ function createCountryObj(obj) {
         name: obj.name,
         nativeName: obj.nativeName,
         capital: obj.capital,
-        population: obj.population,
+        population: numberWithSpaces(obj.population),
         currencies: {
             name: obj.currencies[0].name,
             symbol: obj.currencies[0].symbol,
@@ -17,7 +17,11 @@ function createCountryObj(obj) {
         flags: obj.flag,
         id: uuidv4(),
     }
+}
 
+
+function numberWithSpaces(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
 function getBorderCountriesNames(arr) {
