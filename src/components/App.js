@@ -1,54 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import regeneratorRuntime from "regenerator-runtime";
+import React from 'react';
+import ContentGrid from "./ContentGrid";
 
-import getRandomNumberArr from "./helperFunctions/randomNumber";
-import createCountryObj from "./helperFunctions/createCountryObj";
-
-
+import {Container, BtnContainer} from "../styledComponents/styles";
 
 function App() {
-    const [loading, setLoading] = useState(false);
-    const [countries, setCountries] = useState('');
+    return (
+        <Container>
+            <header>
+                <h1>Where in the world</h1>
+                <p>Browse different countries and learn more about them</p>
+            </header>
+            <BtnContainer>
+                <button>Next</button>
+                <button>Prev</button>
+            </BtnContainer>
 
-    useEffect(()=>{
-        fetchCountryData()
-            .then((response)=>{
-                setCountries(createCountryArr(response));
-                setLoading(true);
-            })
-    }, [])
-
-    if ( loading ) {
-        return (
-            <>
-                <h1>Loading completed</h1>
-                { countries.map((item)=>{
-                    return <p>{ item.name }</p>
-                }) }
-            </>
-        )
-
-    } else {
-        return <h1>loading not compledted</h1>
-    }
-}
-
-
-async function fetchCountryData() {
-    const response = await fetch("https://restcountries.eu/rest/v2/all");
-    if ( response.status !== 200 ) {
-        throw new Error('cannot fetch the data');
-    }
-    return await response.json();
-}
-
-function createCountryArr(response) {
-    let countries = [];
-    let numbers = getRandomNumberArr();
-    for ( let i = 0; i < numbers.length; i++) {
-        countries.push(createCountryObj(response[numbers[i]]))
-    }
-    return countries;
+            <ContentGrid/>
+        </Container>
+    );
 }
 
 export default App;

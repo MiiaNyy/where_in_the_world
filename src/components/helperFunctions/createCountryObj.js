@@ -1,3 +1,5 @@
+import {v4 as uuidv4} from 'uuid';
+
 function createCountryObj(obj) {
     return {
         name: obj.name,
@@ -13,7 +15,9 @@ function createCountryObj(obj) {
         region: obj.region,
         subregion: obj.subregion,
         flags: obj.flag,
+        id: uuidv4(),
     }
+
 }
 
 function getBorderCountriesNames(arr) {
