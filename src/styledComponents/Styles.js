@@ -1,14 +1,17 @@
 import styled from "styled-components";
 
 
-/* GENERAL/COMMON */
+
+
+/* HEADER */
+
 const BtnContainer = styled.section
     `
       display: flex;
       justify-content: center;
       gap: 1em;
       padding: 1em;
-      background-color: rgba(0, 7, 15, 0.41);
+      background-color: hsla(195, 31%, 5%, 0.9);
       position: -webkit-sticky; /* Safari */
       position: sticky;
       top: 0;
@@ -19,17 +22,25 @@ const BtnContainer = styled.section
     `
 ;
 
-const Container = styled.div`
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-`;
-
-
-
-/* HEADER */
-
-
+const Button = styled.button
+    `
+      min-width: 100px;
+      padding: 0.5em 0;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: inherit;
+      color: hsl(0, 0%, 100%);
+      background-color: #5AA1C2;
+      border: 2px solid hsla(195, 31%, 5%, 0.9);
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+      &:hover, &:focus {
+        color: #5AA1C2;
+        background-color: hsla(195, 31%, 5%, 0.9);
+        border: 2px solid #5AA1C2;
+        transform: scale(1.05);
+      }
+    `;
 
 /* MAIN CONTENT/ GRID */
 const MainContent = styled.main
@@ -38,7 +49,9 @@ const MainContent = styled.main
       justify-content: space-evenly;
       flex-wrap: wrap;
       gap: 2em;
-      margin-bottom: 2em;
+      width: 90%;
+      max-width: 1200px;
+      margin: 2em auto;
       padding-top: 1em;
     `
 ;
@@ -55,7 +68,7 @@ const Card = styled.div
 
 export {
     MainContent,
-    Container,
+    Button,
     BtnContainer,
     Card,
 }

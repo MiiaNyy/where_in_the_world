@@ -8,10 +8,10 @@ import CountryCard from "./CountryCard";
 
 import { MainContent } from "../styledComponents/Styles"
 
-function ContentGrid() {
+function ContentGrid(props) {
     const [loading, setLoading] = useState(false);
     const [countries, setCountries] = useState('');
-    const targetIndex = 0;
+
 
     useEffect(()=>{
         fetchCountryData()
@@ -26,7 +26,7 @@ function ContentGrid() {
         return (
             <MainContent>
                 { countries.map((country, index)=>{
-                    let focusStateOn = index === targetIndex;
+                    let focusStateOn = index === props.targetIndex;
                     return <CountryCard focusState={ focusStateOn } obj={ country } key={ country.id }/>
                 }) }
             </MainContent>
