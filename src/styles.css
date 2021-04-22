@@ -91,12 +91,11 @@ a {
     width: 90%;
     max-width: 1500px;
     margin: 0 auto;
-    text-align: center;
     border: 2px solid peru;
 }
 
 .detail__link {
-    margin-top: 1em;
+    margin: 1em auto;
     font-size: 1rem;
     color: hsl(0, 0%, 100%);
     background-color: #5AA1C2;
@@ -119,8 +118,27 @@ a {
 .detail__text {
     width: 100%;
     max-width: 500px;
-    text-align: center;
     border: 2px solid palegreen;
+}
+
+.detail__text h2 {
+    text-align: center;
+}
+
+.detail__primary {
+    max-width: 350px;
+    margin: 0 auto;
+    text-align: left;
+    border: 2px solid yellowgreen;
+}
+
+.detail__primary ul {
+    list-style-type: none;
+
+}
+
+.detail__primary li {
+    margin-bottom: 0.2em;
 }
 
 @media (min-width: 900px) {
