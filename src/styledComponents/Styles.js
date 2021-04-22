@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 const Header = styled.header`
   padding: 2em 1em;
   text-align: center;
-  background-color: #131D26;
+  background-color: #101a21;
 `;
 
 
@@ -14,7 +14,8 @@ const BtnContainer = styled.section
       justify-content: center;
       gap: 1em;
       padding: 1em;
-      background-color: hsla(195, 31%, 5%, 0.9);
+      background-color: #101a21;
+      border-top: 2px solid #202932;
       position: -webkit-sticky; /* Safari */
       position: sticky;
       top: 0;
@@ -27,8 +28,8 @@ const BtnContainer = styled.section
 
 const Container = styled.div`
   width: 90%;
-  max-width: 1200px;
-  margin: 4em auto;
+  max-width: ${ props=>props.detailPage ? "1500px" : props.detailBtn ? "90%" : "1200px" };
+  margin: ${ props=>props.detailPage ? "0 auto" : props.detailBtn ? "0 auto" : "4em auto"};
 `;
 
 /* MAIN CONTENT/ GRID */
@@ -36,10 +37,11 @@ const Flex = styled.main
     `
       display: flex;
       justify-content: space-evenly;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 2em;
+      gap: ${ props=>props.detailPage ? "3em" : "2em" };
+      margin-bottom: 3em;
     `
-
 ;
 
 const Card = styled.div

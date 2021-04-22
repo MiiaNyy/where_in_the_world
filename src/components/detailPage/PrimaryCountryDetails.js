@@ -1,12 +1,14 @@
 import { v4 as uuidv4 } from "uuid";
 import React from "react";
 
+import {ListWrapper} from "../../styledComponents/detailPageStyles";
+
 function PrimaryDetails(props) {
 
     const country = props.country;
     if ( props.loading ) {
         return (
-            <div className="detail__primary">
+            <ListWrapper>
                 <ul>
                     <li><strong>Native name</strong>: { country.nativeName }</li>
                     <li><strong>Capital</strong>: { country.capital }</li>
@@ -26,7 +28,7 @@ function PrimaryDetails(props) {
                     <li><strong>Currency</strong> : { country.currencies.name }, { country.currencies.symbol } </li>
                 </ul>
 
-            </div>
+            </ListWrapper>
         )
     } else {
         return <><p>Loading not finished</p></>

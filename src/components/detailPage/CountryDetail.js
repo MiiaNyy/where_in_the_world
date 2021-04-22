@@ -5,8 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 import PrimaryCountryDetails from "./PrimaryCountryDetails";
 
-import fetchBorderCountriesNames from "./helperFunctions/fetchBorderCountriesNames";
-import { CardTitle, Container, Flex } from "../styledComponents/styles";
+import fetchBorderCountriesNames from "./borderCountries/fetchBorderCountriesNames";
+import { CardTitle, Container, Flex } from "../../styledComponents/Styles";
+import { TextWrapper } from "../../styledComponents/detailPageStyles";
 
 
 function CountryDetail(props) {
@@ -14,7 +15,6 @@ function CountryDetail(props) {
     const [loading, setLoading] = useState(false);
 
     const country = props.location.state;
-
 
 
     useEffect(()=>{
@@ -29,23 +29,24 @@ function CountryDetail(props) {
 
     return (
         <div>
-            <div className="container btn__cont">
+            <Container detailBtn>
                 <Link to="/" className="link detail__link">
                     <i className="fas fa-arrow-left"/>
                     &nbsp;&nbsp; Go Back
                 </Link>
-            </div>
+            </Container>
 
-            <div className="container">
-                <div className="detail__flex">
-                    <img src={ country.flags } alt={ `${ country.name } flag` } width="600" height="400"/>
-                    <div className="detail__text">
+            <Container detailPage>
+                <Flex detailPage>
+                    <img className="img_large" src={ country.flags } alt={ `${ country.name } flag` } width="600"
+                         height="400"/>
+                    <TextWrapper>
                         <h2>{ country.name }</h2>
                         <PrimaryCountryDetails borderCountries={ borderCountries } country={ country }
                                                loading={ loading }/>
-                    </div>
-                </div>
-            </div>
+                    </TextWrapper>
+                </Flex>
+            </Container>
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Card, CardContainer, CardTitle } from "../styledComponents/Styles"
+import { Card, CardContainer, CardTitle } from "../../styledComponents/Styles"
 
 
 function CountryCard(props) {
