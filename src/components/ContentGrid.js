@@ -6,7 +6,6 @@ import getRandomNumberArr from "./helperFunctions/randomNumber";
 import createCountryObj from "./helperFunctions/createCountryObj";
 
 import CountryCard from "./CountryCard";
-import CountryDetail from "./CountryDetail";
 
 import { BtnContainer, Container, Flex } from "../styledComponents/Styles"
 import { decreaseIndex, increaseIndex } from "./helperFunctions/changeIndex";
@@ -15,8 +14,6 @@ function ContentGrid(props) {
     const [loading, setLoading] = useState(false);
     const [countries, setCountries] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
-    console.log('index is  ' + currentIndex);
-
 
     useEffect(()=>{
         fetchCountryData()
@@ -26,10 +23,9 @@ function ContentGrid(props) {
             })
     }, []);
 
-
     if ( loading ) {
-        return ( <CountryDetail obj={ countries[1] }/>
-           /* <>
+        return (
+            <>
                 <BtnContainer>
                     <button onClick={ ()=>decreaseIndex(currentIndex, setCurrentIndex) }>Prev</button>
                     <button onClick={ ()=>increaseIndex(currentIndex, setCurrentIndex) }>Next</button>
@@ -42,9 +38,7 @@ function ContentGrid(props) {
                         }) }
                     </Flex>
                 </Container>
-
-            </>*/
-
+            </>
         )
 
     } else {

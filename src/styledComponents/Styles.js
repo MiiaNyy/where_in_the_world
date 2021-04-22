@@ -28,9 +28,7 @@ const BtnContainer = styled.section
 const Container = styled.div`
   width: 90%;
   max-width: 1200px;
-  margin: 2em auto;
-  border: 2px solid violet;
-
+  margin: 4em auto;
 `;
 
 /* MAIN CONTENT/ GRID */
