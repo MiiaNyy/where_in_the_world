@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import regeneratorRuntime from "regenerator-runtime";
 
 import getRandomNumberArr from "./helperFunctions/randomNumber";
@@ -26,7 +27,7 @@ function ContentGrid(props) {
         return (
             <MainContent>
                 { countries.map((country, index)=>{
-                    let focusStateOn = index === props.targetIndex;
+                    const focusStateOn = index === props.targetIndex;
                     return <CountryCard focusState={ focusStateOn } obj={ country } key={ country.id }/>
                 }) }
             </MainContent>

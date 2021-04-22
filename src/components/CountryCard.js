@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { Card } from "../styledComponents/Styles"
 
 
@@ -7,7 +9,7 @@ function CountryCard(props) {
     let focusState = props.focusState ? 'active' : ' ';
 
     return (
-        <Card className={focusState}>
+        <Card className={ focusState }>
             <img className="card__img" src={ obj.flags } alt="country's flag"/>
             <div className="card__container">
                 <div>
@@ -16,24 +18,24 @@ function CountryCard(props) {
                     <p><strong>Region</strong> : { obj.region }</p>
                     <p><strong>Population</strong> : { obj.population }</p>
                 </div>
-                <CardBtn focusState={focusState}/>
+                <CardBtn obj={ obj } focusState={ focusState }/>
             </div>
         </Card>
     );
 }
 
 function CardBtn(props) {
-    if(props.focusState === 'active') {
-        return (
-            <>
-                <a className="card__btn" href="#">More information &#8594;</a>
-            </>
-        )
-    } else {
-        return <></>
+    const linkProps = {
+        pathname: `/${ props.obj.id }`,
+        param1: props.obj,
     }
 
-
+    switch (props.focusState) {
+        case 'active':
+            return <Link to={ linkProps } className="card__btn">More information &#8594;</Link>
+        default:
+            return <></>
+    }
 }
 
 export default CountryCard;
