@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 import regeneratorRuntime from "regenerator-runtime";
 
 import getRandomNumberArr from "./helperFunctions/randomNumber";
 import createCountryObj from "./helperFunctions/createCountryObj";
 
 import CountryCard from "./CountryCard";
+import CountryDetail from "./CountryDetail";
 
-import { MainContent } from "../styledComponents/Styles"
+import { BtnContainer, Container, Flex } from "../styledComponents/Styles"
+import { decreaseIndex, increaseIndex } from "./helperFunctions/changeIndex";
 
 function ContentGrid(props) {
     const [loading, setLoading] = useState(false);
     const [countries, setCountries] = useState('');
+    const [currentIndex, setCurrentIndex] = useState(0);
+    console.log('index is  ' + currentIndex);
 
 
     useEffect(()=>{
@@ -24,21 +28,31 @@ function ContentGrid(props) {
 
 
     if ( loading ) {
-        return (
-            <MainContent>
-                { countries.map((country, index)=>{
-                    const focusStateOn = index === props.targetIndex;
-                    return <CountryCard focusState={ focusStateOn } obj={ country } key={ country.id }/>
-                }) }
-            </MainContent>
+        return ( <CountryDetail obj={ countries[1] }/>
+           /* <>
+                <BtnContainer>
+                    <button onClick={ ()=>decreaseIndex(currentIndex, setCurrentIndex) }>Prev</button>
+                    <button onClick={ ()=>increaseIndex(currentIndex, setCurrentIndex) }>Next</button>
+                </BtnContainer>
+                <Container>
+                    <Flex>
+                        { countries.map((country, index)=>{
+                            const focusStateOn = index === currentIndex;
+                            return <CountryCard focusState={ focusStateOn } obj={ country } key={ country.id }/>
+                        }) }
+                    </Flex>
+                </Container>
+
+            </>*/
+
         )
 
     } else {
         // This needs a loader
         return (
-            <MainContent>
+            <Flex>
                 <h1>loading not completed</h1>
-            </MainContent>
+            </Flex>
         )
     }
 }

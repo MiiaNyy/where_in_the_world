@@ -1,9 +1,12 @@
-import styled from "styled-components";
-
-
-
+import styled, { css } from "styled-components";
 
 /* HEADER */
+const Header = styled.header`
+  padding: 2em 1em;
+  text-align: center;
+  background-color: #131D26;
+`;
+
 
 const BtnContainer = styled.section
     `
@@ -22,38 +25,23 @@ const BtnContainer = styled.section
     `
 ;
 
-const Button = styled.button
-    `
-      min-width: 100px;
-      padding: 0.5em 0;
-      font-size: 1rem;
-      font-weight: 600;
-      font-family: inherit;
-      color: hsl(0, 0%, 100%);
-      background-color: #5AA1C2;
-      border: 2px solid hsla(195, 31%, 5%, 0.9);
-      border-radius: 5px;
-      transition: all 0.3s ease-in-out;
-      &:hover, &:focus {
-        color: #5AA1C2;
-        background-color: hsla(195, 31%, 5%, 0.9);
-        border: 2px solid #5AA1C2;
-        transform: scale(1.05);
-      }
-    `;
+const Container = styled.div`
+  width: 90%;
+  max-width: 1200px;
+  margin: 2em auto;
+  border: 2px solid violet;
+
+`;
 
 /* MAIN CONTENT/ GRID */
-const MainContent = styled.main
+const Flex = styled.main
     `
       display: flex;
       justify-content: space-evenly;
       flex-wrap: wrap;
       gap: 2em;
-      width: 90%;
-      max-width: 1200px;
-      margin: 2em auto;
-      padding-top: 1em;
     `
+
 ;
 
 const Card = styled.div
@@ -63,12 +51,33 @@ const Card = styled.div
       background-color: hsl(209, 23%, 22%);
       font-size: 0.875rem;
       transition: all 0.2s ease-in-out;
+
+      & > img {
+        max-height: 120px;
+        min-height: 120px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
     `;
+
+const CardContainer = styled.div`
+  margin-top: 1em;
+  padding: 0 1.5em 1em;
+`;
+
+const CardTitle = styled.p`
+  font-size: 1rem;
+  font-weight: 600;
+`;
 
 
 export {
-    MainContent,
-    Button,
+    Header,
+    Container,
+    Flex,
     BtnContainer,
     Card,
+    CardContainer,
+    CardTitle,
 }

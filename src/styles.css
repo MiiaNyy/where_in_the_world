@@ -16,6 +16,24 @@ body {
 
 button {
     cursor: pointer;
+    min-width: 100px;
+    padding: 0.5em 0;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: hsl(0, 0%, 100%);
+    background-color: #5AA1C2;
+    border: 2px solid hsla(195, 31%, 5%, 0.9);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover, button:focus,
+.detail__link:hover, .detail__link:focus {
+    color: #5AA1C2;
+    background-color: hsla(195, 31%, 5%, 0.9);
+    border: 2px solid #5AA1C2;
+    transform: scale(1.05);
 }
 
 img {
@@ -39,57 +57,86 @@ a {
 }
 
 
-
-header {
-    padding: 2em 1em;
-    text-align: center;
-    background-color: #131D26;
+.active {
+    transform: scale(1.05);
+    border: 2px solid yellow;
 }
 
-
-.card__img {
-    max-height: 120px;
-    min-height: 120px;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-    /*object-fit: cover;*/
-}
-
-.card__container {
-    margin-top: 1em;
-    padding:  0 1.5em 1em;
-}
-
-.card__title {
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.card__btn {
+.link {
     display: inline-block;
     padding: 0.5em 1em;
     border-radius: 5px;
-    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    color: #24C465;
-    background-color: hsl(209, 23%, 22%);
-    border: 2px solid #24C465;
     transition: all 0.3s ease-in-out;
 }
 
-.card__btn:hover, .card__btn:focus {
+.card__link {
+    font-size: 0.75rem;
+    color: #24C465;
+    background-color: hsl(209, 23%, 22%);
+    border: 2px solid #24C465;
+}
+
+.card__link:hover, .card__link:focus {
     color: hsl(200, 15%, 8%);
     background-color: #24C465;
     transform: scale(1.05);
 }
 
 
-.active {
-    transform: scale(1.05);
-    border: 2px solid yellow;
+
+
+.container {
+    width: 90%;
+    max-width: 1500px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid peru;
 }
+
+.detail__link {
+    margin-top: 1em;
+    font-size: 1rem;
+    color: hsl(0, 0%, 100%);
+    background-color: #5AA1C2;
+    border: 2px solid hsla(195, 31%, 5%, 0.9);
+}
+
+.detail__flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.detail_container img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+.detail__text {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    border: 2px solid palegreen;
+}
+
+@media (min-width: 900px) {
+    .container {
+        text-align: left;
+    }
+
+    .detail__flex {
+        flex-direction: row;
+    }
+}
+
+
+
+
+
 
 
 

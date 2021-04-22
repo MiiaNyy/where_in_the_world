@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Card } from "../styledComponents/Styles"
+import { Card, CardContainer, CardTitle } from "../styledComponents/Styles"
 
 
 function CountryCard(props) {
@@ -10,16 +10,16 @@ function CountryCard(props) {
 
     return (
         <Card className={ focusState }>
-            <img className="card__img" src={ obj.flags } alt="country's flag"/>
-            <div className="card__container">
+            <img src={ obj.flags } alt="country's flag"/>
+            <CardContainer>
                 <div>
-                    <p className="card__title">{ obj.name }</p>
+                    <CardTitle>{ obj.name }</CardTitle>
                     <p><strong>Capital</strong>: { obj.capital }</p>
                     <p><strong>Region</strong> : { obj.region }</p>
                     <p><strong>Population</strong> : { obj.population }</p>
                 </div>
                 <CardBtn obj={ obj } focusState={ focusState }/>
-            </div>
+            </CardContainer>
         </Card>
     );
 }
@@ -27,12 +27,17 @@ function CountryCard(props) {
 function CardBtn(props) {
     const linkProps = {
         pathname: `/${ props.obj.id }`,
-        param1: props.obj,
+        state: props.obj,
     }
 
     switch (props.focusState) {
         case 'active':
-            return <Link to={ linkProps } className="card__btn">More information &#8594;</Link>
+            return (
+                <Link to={ linkProps } className="link card__link">
+                    More information &nbsp;&nbsp;
+                    <i className="fas fa-arrow-right"/>
+                </Link>
+            )
         default:
             return <></>
     }

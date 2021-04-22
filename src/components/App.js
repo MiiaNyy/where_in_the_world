@@ -1,28 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import CardGrid from "./ContentGrid";
-import CountryInfo from "./CountryInfo";
+import CountryDetail from "./CountryDetail";
 
-import { increaseIndex, decreaseIndex } from "./helperFunctions/changeIndex";
-import { Button, BtnContainer } from "../styledComponents/Styles";
+import { Header } from "../styledComponents/Styles"
 
 function App() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    console.log('index is  ' + currentIndex);
+
     return (
         <Router>
-            <header>
+            <Header>
                 <h1>Where in the world</h1>
                 <p>Browse different countries and learn more about them</p>
-            </header>
-            <BtnContainer>
-                <Button onClick={ ()=>decreaseIndex(currentIndex, setCurrentIndex) }>Prev</Button>
-                <Button onClick={ ()=>increaseIndex(currentIndex, setCurrentIndex) }>Next</Button>
-            </BtnContainer>
+            </Header>
             <Switch>
-                <Route exact path="/" render={(props) => <CardGrid {...props}  targetIndex={ currentIndex } />} />
-                <Route exact path="/:id" component={ CountryInfo }/>
+                <Route exact path="/" component={ CardGrid }/>
+                <Route exact path="/:id" component={ CountryDetail }/>
             </Switch>
 
 
