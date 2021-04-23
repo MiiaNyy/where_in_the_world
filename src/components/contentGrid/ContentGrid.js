@@ -34,8 +34,12 @@ function ContentGrid() {
         return (
             <>
                 <BtnContainer>
-                    <button onClick={ ()=>decreaseIndex(currentIndex, setCurrentIndex) }>Prev</button>
-                    <button onClick={ ()=>increaseIndex(currentIndex, setCurrentIndex) }>Next</button>
+                    <button onClick={ ()=>decreaseIndex(currentIndex, setCurrentIndex) }>
+                        <i className="fas fa-arrow-left"/> Prev
+                    </button>
+                    <button onClick={ ()=>increaseIndex(currentIndex, setCurrentIndex) }>
+                        Next <i className="fas fa-arrow-right"/>
+                    </button>
                 </BtnContainer>
                 <Container>
                     <Flex>
