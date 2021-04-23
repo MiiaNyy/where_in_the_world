@@ -1,29 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
-import { v4 as uuidv4 } from 'uuid';
-
 import PrimaryCountryDetails from "./PrimaryCountryDetails";
 
 import fetchBorderCountriesNames from "./borderCountries/fetchBorderCountriesNames";
-import { CardTitle, Container, Flex } from "../../styledComponents/Styles";
-import { TextWrapper } from "../../styledComponents/detailPageStyles";
+
+import { Container, Flex, TextWrapper } from "../../styledComponents/Styles";
 
 
 function CountryDetail(props) {
     const [borderCountries, setBorderCountries] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loadingComplete, setLoadingComplete] = useState(false);
 
+    // current country obj
     const country = props.location.state;
 
-
     useEffect(()=>{
-        let borders = country.borders;
+        const borders = country.borders;
         if ( borders.length === 0 ) {
-            setBorderCountries(['No border countries'])
-            setLoading(true);
+            setBorderCountries(['No neighbouring countries'])
+            //setLoadingComplete(true);
         } else {
-            fetchBorderCountriesNames(borders, setLoading, setBorderCountries);
+            fetchBorderCountriesNames(borders, setLoadingComplete, setBorderCountries);
         }
     }, [])
 
@@ -35,7 +33,6 @@ function CountryDetail(props) {
                     &nbsp;&nbsp; Go Back
                 </Link>
             </Container>
-
             <Container detailPage>
                 <Flex detailPage>
                     <img className="img_large" src={ country.flags } alt={ `${ country.name } flag` } width="600"
@@ -43,7 +40,7 @@ function CountryDetail(props) {
                     <TextWrapper>
                         <h2>{ country.name }</h2>
                         <PrimaryCountryDetails borderCountries={ borderCountries } country={ country }
-                                               loading={ loading }/>
+                                               loadingComplete={ loadingComplete }/>
                     </TextWrapper>
                 </Flex>
             </Container>

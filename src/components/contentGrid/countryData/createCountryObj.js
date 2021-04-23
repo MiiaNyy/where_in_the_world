@@ -11,7 +11,7 @@ function createCountryObj(obj) {
             name: obj.currencies[0].name,
             symbol: obj.currencies[0].symbol,
         },
-        languages: getLanguages(obj.languages),
+        languages: getLanguagesNames(obj.languages),
         borders: obj.borders,
         region: obj.region,
         subregion: obj.subregion,
@@ -20,14 +20,14 @@ function createCountryObj(obj) {
     }
 }
 
-
-function numberWithSpaces(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+// Adds space after every 3 numbers so bigger population numbers are easier to read
+function numberWithSpaces(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
-
-
-function getLanguages(arr) {
+// Api gives different languages in a array of object, where is different information about them. We only
+// need the language name.
+function getLanguagesNames(arr) {
     let languages = [];
     for (let i = 0; i < arr.length; i++) {
         languages.push(arr[i].name);

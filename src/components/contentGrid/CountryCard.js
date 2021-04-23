@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 
 import { Card, CardContainer, CardTitle } from "../../styledComponents/Styles"
 
-
 function CountryCard(props) {
+    // Current country obj from arr
     const obj = props.obj;
-    let focusState = props.focusState ? 'active' : ' ';
+
+    // If focusState is active, current item is selected
+    const focusState = props.focusState ? 'active' : ' ';
 
     return (
         <Card className={ focusState }>
@@ -29,7 +31,7 @@ function CardBtn(props) {
         pathname: `/${ props.obj.id }`,
         state: props.obj,
     }
-
+    // If element is selected, show link/button otherwise don't return anything
     switch (props.focusState) {
         case 'active':
             return (

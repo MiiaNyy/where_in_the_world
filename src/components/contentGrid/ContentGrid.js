@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import regeneratorRuntime from "regenerator-runtime";
 
+import spinner from "../../images/spinner.svg" // https://loading.io/
 import { createCountryArr, fetchCountryData } from "./countryData/countryData";
-
 import CountryCard from "./CountryCard";
 
 import { BtnContainer, Container, Flex } from "../../styledComponents/Styles"
 import { decreaseIndex, increaseIndex } from "../../helperFunctions/changeIndex";
 import { setItemsToStorage, getItemsFromStorage } from "../../helperFunctions/localStorage";
 
-const randomNumbers = [205, 141, 77, 194, 171, 75, 50, 190, 218, 21, 244, 24, 202, 109, 80, 59, 173, 103, 44, 239];
+// When fetching country data, it returns array of objects that is 250 items long. We want only random 20 items.
+const randomIndex = [205, 141, 77, 194, 171, 75, 50, 190, 218, 21, 244, 24, 202, 109, 80, 59, 173, 103, 44, 239];
 
 function ContentGrid() {
-    const [loading, setLoading] = useState(false);
+    const [loadingComplete, setLoadingComplete] = useState(false);
     const [countries, setCountries] = useState('');
+
+    // This index tells which country from the array is currently selected
     const [currentIndex, setCurrentIndex] = useState(0);
 
     getItemsFromStorage('currentIndex', setCurrentIndex, currentIndex);
@@ -22,12 +25,12 @@ function ContentGrid() {
     useEffect(()=>{
         fetchCountryData()
             .then((response)=>{
-                setCountries(createCountryArr(response, randomNumbers));
-                setLoading(true);
+                setCountries(createCountryArr(response, randomIndex));
+                setLoadingComplete(true);
             })
     }, []);
 
-    if ( loading ) {
+    if ( loadingComplete ) {
         return (
             <>
                 <BtnContainer>
@@ -46,16 +49,10 @@ function ContentGrid() {
         )
 
     } else {
-        // This needs a loader
         return (
-            <Flex>
-                <h1>loading not completed</h1>
-            </Flex>
+            <Flex><img src={ spinner } alt="page loader"/></Flex>
         )
     }
 }
-
-
-
 
 export default ContentGrid;

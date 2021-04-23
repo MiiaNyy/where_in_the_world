@@ -7,7 +7,6 @@ import CountryDetail from "./detailPage/CountryDetail";
 import { Header } from "../styledComponents/Styles"
 
 function App() {
-
     return (
         <Router>
             <Header>
@@ -18,8 +17,6 @@ function App() {
                 <Route exact path="/" component={ CardGrid }/>
                 <Route exact path="/:id" component={ CountryDetail }/>
             </Switch>
-
-
         </Router>
     );
 }

@@ -11,7 +11,7 @@ function createCountryArr(response, randomNum) {
 async function fetchCountryData() {
     const response = await fetch("https://restcountries.eu/rest/v2/all");
     if ( response.status !== 200 ) {
-        throw new Error('cannot fetch the data');
+        throw new Error('cannot fetch the country data');
     }
     return await response.json();
 }

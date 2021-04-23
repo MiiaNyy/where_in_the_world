@@ -1,12 +1,14 @@
-import { v4 as uuidv4 } from "uuid";
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
-import {ListWrapper} from "../../styledComponents/detailPageStyles";
+import spinner from "../../images/spinner.svg" // https://loading.io/
+
+import { Flex, ListWrapper } from "../../styledComponents/Styles";
 
 function PrimaryDetails(props) {
-
     const country = props.country;
-    if ( props.loading ) {
+
+    if ( props.loadingComplete ) {
         return (
             <ListWrapper>
                 <ul>
@@ -27,11 +29,10 @@ function PrimaryDetails(props) {
                     </li>
                     <li><strong>Currency</strong> : { country.currencies.name }, { country.currencies.symbol } </li>
                 </ul>
-
             </ListWrapper>
         )
     } else {
-        return <><p>Loading not finished</p></>
+        return <Flex><img src={ spinner } alt="page loader"/></Flex>
     }
 }
 
