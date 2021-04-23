@@ -1,4 +1,3 @@
-
 // Common loaders and rules
 
 module.exports = {
@@ -15,14 +14,10 @@ module.exports = {
                 type: 'asset/resource',
             },
             {
-                test: /\.js$/,
+                test: /\.m?js$/,
                 exclude: /(node_modules)/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ['@babel/preset-env', "@babel/preset-react"]
-                    }
-                }
+                use: ["babel-loader"],
+
             }
         ]
     }

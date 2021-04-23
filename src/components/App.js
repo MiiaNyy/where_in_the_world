@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import CardGrid from "./contentGrid/ContentGrid";
+import CardGrid from "./mainContent/CardGrid";
 import CountryDetail from "./detailPage/CountryDetail";
 
 import { Header } from "../styledComponents/Styles"

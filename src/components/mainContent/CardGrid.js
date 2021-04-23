@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import regeneratorRuntime from "regenerator-runtime";
 
 import spinner from "../../images/spinner.svg" // https://loading.io/
-import { createCountryArr, fetchCountryData } from "./countryData/countryData";
+import { createCountryArr, fetchCountryData } from "./createCountryData/fetchCountryData";
 import CountryCard from "./CountryCard";
 
 import { BtnContainer, Container, Flex } from "../../styledComponents/Styles"
@@ -12,7 +12,7 @@ import { setItemsToStorage, getItemsFromStorage } from "../../helperFunctions/lo
 // When fetching country data, it returns array of objects that is 250 items long. We want only random 20 items.
 const randomIndex = [205, 141, 77, 194, 171, 75, 50, 190, 218, 21, 244, 24, 202, 109, 80, 59, 173, 103, 44, 239];
 
-function ContentGrid() {
+function CardGrid() {
     const [loadingComplete, setLoadingComplete] = useState(false);
     const [countries, setCountries] = useState('');
 
@@ -59,4 +59,4 @@ function ContentGrid() {
     }
 }
 
-export default ContentGrid;
+export default CardGrid;
