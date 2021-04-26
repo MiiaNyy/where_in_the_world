@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 90%;
-  max-width: ${ props=>props.detailPage ? "1500px" : props.detailBtn ? "90%" : "1200px" };
+  max-width: ${ props=>props.detailPage ? "1200px" : props.detailBtn ? "90%" : "1600px" };
   margin: ${ props=>props.detailPage ? "0 auto" : props.detailBtn ? "0 auto" : "4em auto"};
 `;
 

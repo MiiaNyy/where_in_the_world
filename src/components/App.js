@@ -4,9 +4,12 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import CardGrid from "./mainContent/CardGrid";
 import CountryDetail from "./detailPage/CountryDetail";
 
-import { Header } from "../styledComponents/Styles"
+import { Header } from "../StyledComponents"
+
 
 function App() {
+
+
     return (
         <Router>
             <Header>

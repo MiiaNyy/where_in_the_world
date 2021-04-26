@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import spinner from "../../images/spinner.svg" // https://loading.io/
 
-import { Flex, ListWrapper } from "../../styledComponents/Styles";
+import { Flex, ListWrapper } from "../../StyledComponents";
 
 function PrimaryDetails(props) {
     const country = props.country;

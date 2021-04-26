@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import PrimaryCountryDetails from "./PrimaryCountryDetails";
 
-import fetchBorderCountriesNames from "./borderCountries/fetchBorderCountriesNames";
+import fetchBorderCountriesNames from "./fetchBorderCountriesNames";
 
-import { Container, Flex, TextWrapper } from "../../styledComponents/Styles";
+import { Container, Flex, TextWrapper } from "../../StyledComponents";
 
 
 function CountryDetail(props) {
