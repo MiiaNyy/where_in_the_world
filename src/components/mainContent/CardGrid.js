@@ -5,7 +5,7 @@ import spinner from "../../images/spinner.svg" // https://loading.io/
 import { createCountryArr, fetchCountryData } from "./createCountryData/fetchCountryData";
 import CountryCard from "./CountryCard";
 
-import { BtnContainer, Container, Flex } from "../../styledComponents/Styles"
+import { BtnContainer, Container, Flex } from "../../StyledComponents"
 import { decreaseIndex, increaseIndex } from "../../helperFunctions/changeIndex";
 import { setItemsToStorage, getItemsFromStorage } from "../../helperFunctions/localStorage";
 

@@ -3,17 +3,10 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import CardGrid from "./mainContent/CardGrid";
 import CountryDetail from "./detailPage/CountryDetail";
-import data from "../../../data.json"
+
 import { Header } from "../styledComponents/Styles"
 
-console.log('REF is ' + data.REF);
-console.log('AA is ' + data.AA);
-console.log('BB is ' + data.BB);
-console.log('AB is ' + data.AB);
-
 function App() {
-
-
     return (
         <Router>
             <Header>
